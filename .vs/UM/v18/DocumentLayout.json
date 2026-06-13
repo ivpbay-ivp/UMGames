@@ -82,14 +82,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T18:09:07.968Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -99,7 +99,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAADoCAAAAAAAAAAAcwFoCAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAIMBAAAAAAAAAAAwwKUBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T18:09:26.326Z",
               "EditorCaption": ""
@@ -138,8 +138,7 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAAPQCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T19:00:07.65Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-12T19:00:07.65Z"
             }
           ]
         }

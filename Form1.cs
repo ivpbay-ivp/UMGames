@@ -303,10 +303,10 @@ namespace UM
                         gameManager.GetPlayers().Clear();
 
                         // Добавляем игроков с именами из lblPlayer (с главной формы)
-                        gameManager.AddPlayer(lblPlayer11.Text.Split('[')[0].Trim());
-                        gameManager.AddPlayer(lblPlayer21.Text.Split('[')[0].Trim());
-                        gameManager.AddPlayer(lblPlayer31.Text.Split('[')[0].Trim());
-                        gameManager.AddPlayer(lblPlayer41.Text.Split('[')[0].Trim());
+                        gameManager.AddPlayer(lblPlayer1.Text);
+                        gameManager.AddPlayer(lblPlayer2.Text);
+                        gameManager.AddPlayer(lblPlayer3.Text);
+                        gameManager.AddPlayer(lblPlayer4.Text);
                         // ===========================================
 
                         UpdateScoresDisplay();
@@ -339,10 +339,10 @@ namespace UM
 
                 // ========== ЗДЕСЬ ТОЖЕ СОЗДАЮТСЯ ИГРОКИ ==========
                 gameManager.GetPlayers().Clear();
-                gameManager.AddPlayer(lblPlayer11.Text.Split('[')[0].Trim());
-                gameManager.AddPlayer(lblPlayer21.Text.Split('[')[0].Trim());
-                gameManager.AddPlayer(lblPlayer31.Text.Split('[')[0].Trim());
-                gameManager.AddPlayer(lblPlayer41.Text.Split('[')[0].Trim());
+                gameManager.AddPlayer(lblPlayer1.Text);
+                gameManager.AddPlayer(lblPlayer2.Text);
+                gameManager.AddPlayer(lblPlayer3.Text);
+                gameManager.AddPlayer(lblPlayer4.Text);
                 // =================================================
 
                 UpdateScoresDisplay();
@@ -388,41 +388,43 @@ namespace UM
 
         private void GameManager_TrackEnded(object sender, EventArgs e)
         {
-            // Если кто-то нажал - не переключаем трек, ждём решения ведущего
             if (lastPressedPlayer != -1) return;
-
-            // Если не ждём ответ - выходим
             if (!isWaitingForAnswer) return;
 
-            // Используем BeginInvoke чтобы избежать проблем с потоками
-            this.BeginInvoke(new Action(() =>
+            try
             {
-                gameTimer.Stop();
-                isWaitingForAnswer = false;
-                btnPlayTrack.Enabled = true;
-                btnResumeMusic.Enabled = false;
-                currentTrackIndex++;
-                lastPressedPlayer = -1;
-                lblStatus.Text = "Песня закончилась, никто не нажал";
-
-                // Сбрасываем подсветку игроков
-                TextBox[] playerLabels = { lblPlayer1, lblPlayer2, lblPlayer3, lblPlayer4 };
-                for (int i = 0; i < playerLabels.Length; i++)
+                if (this.IsHandleCreated && !this.IsDisposed)
                 {
-                    playerLabels[i].BackColor = System.Drawing.SystemColors.Control;
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        try
+                        {
+                            if (this.IsDisposed) return;
+
+                            gameTimer.Stop();
+                            isWaitingForAnswer = false;
+                            btnPlayTrack.Enabled = true;
+                            btnResumeMusic.Enabled = false;
+                            currentTrackIndex++;
+                            lastPressedPlayer = -1;
+                            lblStatus.Text = "Песня закончилась, никто не нажал";
+
+                            if (gameManager.CurrentTour == 1)
+                                lblCounter.Text = "1 ТУР";
+
+                            UpdateViewerStatus();
+                        }
+                        catch { }
+                    }));
                 }
-
-                if (gameManager.CurrentTour == 1)
-                    lblCounter.Text = "1 ТУР";
-
-                UpdateViewerStatus();
-            }));
+            }
+            catch { }
             if (viewerForm != null && !viewerForm.IsDisposed)
             {
                 viewerForm.ResetIndicators();
             }
         }
-
+ 
         private void BtnSaveScore_Click(object sender, EventArgs e)
         {
             using (var dlg = new SaveFileDialog() { Filter = "txt|*.txt" })
@@ -476,10 +478,10 @@ namespace UM
         {
             var players = gameManager.GetPlayers();
 
-            if (players.Count >= 1) players[0].Name = lblPlayer11.Text.Replace(" [", "").Split('[')[0].Trim();
-            if (players.Count >= 2) players[1].Name = lblPlayer21.Text.Replace(" [", "").Split('[')[0].Trim();
-            if (players.Count >= 3) players[2].Name = lblPlayer31.Text.Replace(" [", "").Split('[')[0].Trim();
-            if (players.Count >= 4) players[3].Name = lblPlayer41.Text.Replace(" [", "").Split('[')[0].Trim();
+            if (players.Count >= 1) players[0].Name = lblPlayer1.Text;
+            if (players.Count >= 2) players[1].Name = lblPlayer2.Text;
+            if (players.Count >= 3) players[2].Name = lblPlayer3.Text;
+            if (players.Count >= 4) players[3].Name = lblPlayer4.Text;
 
             UpdateScoresDisplay();
             UpdateViewerStatus();
@@ -487,26 +489,18 @@ namespace UM
 
         private void btnUpdatePlayerName_Click(object sender, EventArgs e)
         {
-            // Обновляем имена в gameManager
             var players = gameManager.GetPlayers();
             if (players.Count >= 4)
             {
-                players[0].Name = lblPlayer1.Text.Split('[')[0].Trim();
-                players[1].Name = lblPlayer2.Text.Split('[')[0].Trim();
-                players[2].Name = lblPlayer3.Text.Split('[')[0].Trim();
-                players[3].Name = lblPlayer4.Text.Split('[')[0].Trim();
+                players[0].Name = lblPlayer1.Text;
+                players[1].Name = lblPlayer2.Text;
+                players[2].Name = lblPlayer3.Text;
+                players[3].Name = lblPlayer4.Text;
                 UpdateScoresDisplay();
 
-                // Обновляем имена в окне трансляции
                 if (viewerForm != null && !viewerForm.IsDisposed)
                 {
-                    string[] names = new string[]
-                    {
-                players[0].Name,
-                players[1].Name,
-                players[2].Name,
-                players[3].Name
-                    };
+                    string[] names = new string[] { lblPlayer1.Text, lblPlayer2.Text, lblPlayer3.Text, lblPlayer4.Text };
                     viewerForm.UpdatePlayerNames(names);
                 }
             }
