@@ -126,6 +126,10 @@ namespace UM
                 lblCurrentTrack.Text = $"{trackInfo.Theme} - вопрос {trackInfo.QuestionNumber}";
 
             UpdateViewerStatus();
+            if (viewerForm != null && !viewerForm.IsDisposed)
+            {
+                viewerForm.ResetIndicators();
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -154,7 +158,7 @@ namespace UM
 
             if (viewerForm != null && !viewerForm.IsDisposed)
             {
-                viewerForm.HighlightPressedPlayer(idx);
+                viewerForm.HighlightPressedPlayer(idx, true);  // true - включить
             }
 
             e.Handled = true;
@@ -189,7 +193,10 @@ namespace UM
             // Сбрасываем отображение очков
             if (gameManager.CurrentTour == 1)
                 lblCounter.Text = "1 ТУР";
-
+            if (viewerForm != null && !viewerForm.IsDisposed)
+            {
+                viewerForm.HighlightPressedPlayer(lastPressedPlayer, false);  // false - выключить
+            }
             UpdateViewerStatus();
         }
 
@@ -206,7 +213,10 @@ namespace UM
             lastPressedPlayer = -1;
             btnResumeMusic.Enabled = true;
             lblStatus.Text = $"❌ Штраф. Можно продолжить музыку";
-
+            if (viewerForm != null && !viewerForm.IsDisposed)
+            {
+                viewerForm.HighlightPressedPlayer(lastPressedPlayer, false);
+            }
             UpdateViewerStatus();
         }
 
@@ -219,6 +229,10 @@ namespace UM
             btnResumeMusic.Enabled = false;
             isWaitingForAnswer = true;  // Продолжаем ждать нажатия
             lblStatus.Text = "Музыка продолжена, ждём нажатия";
+            if (viewerForm != null && !viewerForm.IsDisposed)
+            {
+                viewerForm.ResetIndicators();
+            }
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
@@ -303,10 +317,10 @@ namespace UM
             {
                 string[] names = new string[]
                 {
-        lblPlayer1.Text.Split('[')[0].Trim(),
-        lblPlayer2.Text.Split('[')[0].Trim(),
-        lblPlayer3.Text.Split('[')[0].Trim(),
-        lblPlayer4.Text.Split('[')[0].Trim()
+        lblPlayer1.Text,
+        lblPlayer2.Text,
+        lblPlayer3.Text,
+        lblPlayer4.Text
                 };
                 viewerForm.UpdatePlayerNames(names);
             }
@@ -403,6 +417,10 @@ namespace UM
 
                 UpdateViewerStatus();
             }));
+            if (viewerForm != null && !viewerForm.IsDisposed)
+            {
+                viewerForm.ResetIndicators();
+            }
         }
 
         private void BtnSaveScore_Click(object sender, EventArgs e)

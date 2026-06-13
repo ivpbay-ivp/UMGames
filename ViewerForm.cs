@@ -10,7 +10,6 @@ namespace UM
         private System.Windows.Forms.Timer updateTimer;
 
         private Color[] playerColors = { Color.Red, Color.Blue, Color.Yellow, Color.Green };
-        private PictureBox[] indicators;
         private PictureBox[] smallIndicators;
         private Label[] playerNames;
         private Label[] playerScores;
@@ -27,64 +26,73 @@ namespace UM
             playerPenalties = new Label[] { lblPlayerPenalty1, lblPlayerPenalty2, lblPlayerPenalty3, lblPlayerPenalty4 };
 
             updateTimer = new System.Windows.Forms.Timer();
-            updateTimer.Interval = 200;
+            updateTimer.Interval = 500;
             updateTimer.Tick += UpdateTimer_Tick;
             updateTimer.Start();
         }
 
-
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
+            if (!this.IsHandleCreated) return;
+
             try
             {
                 var players = gameManager.GetPlayers();
 
-                for (int i = 0; i < players.Count && i < 4; i++)
+                for (int i = 0; i < players.Count && i < playerNames.Length; i++)
                 {
-                    // НЕ меняем имена - они уже установлены из Form1
-                    // playerNames[i].Text = players[i].Name;  // УБРАТЬ!
+                    if (playerNames[i] != null && !playerNames[i].IsDisposed)
+                        playerNames[i].Text = players[i].Name;
 
-                    playerScores[i].Text = players[i].Score.ToString();
+                    if (playerScores[i] != null && !playerScores[i].IsDisposed)
+                        playerScores[i].Text = players[i].Score.ToString();
 
                     if (players[i].IsBlocked)
                     {
-                        playerPenalties[i].Text = $"🚫 БЛОК: {players[i].BlockedRemaining}";
-                        playerPenalties[i].ForeColor = Color.Red;
-                        playerPenalties[i].Font = new Font("Arial", 12, FontStyle.Bold);
-                        smallIndicators[i].BackColor = Color.DarkGray;
-                        playerNames[i].ForeColor = Color.Gray;
-                        playerScores[i].ForeColor = Color.Gray;
+                        if (playerPenalties[i] != null && !playerPenalties[i].IsDisposed)
+                        {
+                            playerPenalties[i].Text = $"🚫 БЛОК: {players[i].BlockedRemaining}";
+                            playerPenalties[i].ForeColor = Color.Red;
+                        }
+                        if (playerNames[i] != null && !playerNames[i].IsDisposed)
+                            playerNames[i].ForeColor = Color.Gray;
+                        if (playerScores[i] != null && !playerScores[i].IsDisposed)
+                            playerScores[i].ForeColor = Color.Gray;
                     }
                     else
                     {
-                        playerPenalties[i].Text = "✅ АКТИВЕН";
-                        playerPenalties[i].ForeColor = Color.LightGreen;
-                        playerPenalties[i].Font = new Font("Arial", 10, FontStyle.Regular);
-                        smallIndicators[i].BackColor = Color.Gray;
-                        playerNames[i].ForeColor = playerColors[i];
-                        playerScores[i].ForeColor = Color.White;
+                        if (playerPenalties[i] != null && !playerPenalties[i].IsDisposed)
+                        {
+                            playerPenalties[i].Text = "✅ АКТИВЕН";
+                            playerPenalties[i].ForeColor = Color.LightGreen;
+                        }
+                        if (playerNames[i] != null && !playerNames[i].IsDisposed)
+                            playerNames[i].ForeColor = playerColors[i];
+                        if (playerScores[i] != null && !playerScores[i].IsDisposed)
+                            playerScores[i].ForeColor = Color.White;
                     }
                 }
             }
             catch { }
         }
 
-        public void HighlightPressedPlayer(int playerIndex)
+        public void HighlightPressedPlayer(int playerIndex, bool isActive)
         {
-            if (playerIndex >= 0 && playerIndex < 4)
+            if (!this.IsHandleCreated) return;
+
+            if (smallIndicators == null || bigIndicator == null) return;
+
+            if (playerIndex >= 0 && playerIndex < smallIndicators.Length)
             {
-                // Большой индикатор
-                bigIndicator.BackColor = playerColors[playerIndex];
-                lblIndicatorText.Text = $"НАЖАЛ {playerNames[playerIndex].Text}!";
-                lblIndicatorText.ForeColor = playerColors[playerIndex];
-
-                // Маленький индикатор
-                smallIndicators[playerIndex].BackColor = playerColors[playerIndex];
-
-                // Таймер для сброса
-                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-                timer.Interval = 2000;
-                timer.Tick += (s, args) =>
+                if (isActive)
+                {
+                    bigIndicator.BackColor = playerColors[playerIndex];
+                    lblIndicatorText.Text = $"НАЖАЛ {playerNames[playerIndex]?.Text}!";
+                    lblIndicatorText.ForeColor = playerColors[playerIndex];
+                    if (smallIndicators[playerIndex] != null)
+                        smallIndicators[playerIndex].BackColor = playerColors[playerIndex];
+                }
+                else
                 {
                     bigIndicator.BackColor = Color.Gray;
                     lblIndicatorText.Text = "ОЖИДАНИЕ НАЖАТИЯ";
@@ -92,28 +100,76 @@ namespace UM
 
                     var players = gameManager.GetPlayers();
                     if (playerIndex < players.Count && players[playerIndex].IsBlocked)
-                        smallIndicators[playerIndex].BackColor = Color.DarkGray;
+                    {
+                        if (smallIndicators[playerIndex] != null)
+                            smallIndicators[playerIndex].BackColor = Color.DarkGray;
+                    }
                     else
-                        smallIndicators[playerIndex].BackColor = Color.Gray;
+                    {
+                        if (smallIndicators[playerIndex] != null)
+                            smallIndicators[playerIndex].BackColor = Color.Gray;
+                    }
+                }
+            }
+        }
 
-                    timer.Stop();
-                    timer.Dispose();
-                };
-                timer.Start();
+        public void ResetIndicators()
+        {
+            if (!this.IsHandleCreated) return;
+
+            if (bigIndicator != null)
+                bigIndicator.BackColor = Color.Gray;
+
+            if (lblIndicatorText != null)
+            {
+                lblIndicatorText.Text = "ОЖИДАНИЕ НАЖАТИЯ";
+                lblIndicatorText.ForeColor = Color.White;
+            }
+
+            if (smallIndicators != null)
+            {
+                var players = gameManager.GetPlayers();
+                for (int i = 0; i < smallIndicators.Length; i++)
+                {
+                    if (smallIndicators[i] != null && !smallIndicators[i].IsDisposed)
+                    {
+                        if (i < players.Count && players[i].IsBlocked)
+                            smallIndicators[i].BackColor = Color.DarkGray;
+                        else
+                            smallIndicators[i].BackColor = Color.Gray;
+                    }
+                }
             }
         }
 
         public void UpdateStatus(string status, string track, string counter)
         {
-            if (this.IsHandleCreated)
+            if (!this.IsHandleCreated) return;
+
+            this.BeginInvoke(new Action(() =>
             {
-                this.BeginInvoke(new Action(() =>
-                {
+                if (lblStatus != null && !lblStatus.IsDisposed)
                     lblStatus.Text = status;
+                if (lblCurrentTrack != null && !lblCurrentTrack.IsDisposed)
                     lblCurrentTrack.Text = track;
+                if (lblCounter != null && !lblCounter.IsDisposed)
                     lblCounter.Text = counter;
-                }));
-            }
+            }));
+        }
+
+        // ДОБАВЬТЕ ЭТОТ МЕТОД
+        public void UpdatePlayerNames(string[] names)
+        {
+            if (!this.IsHandleCreated) return;
+
+            this.BeginInvoke(new Action(() =>
+            {
+                for (int i = 0; i < names.Length && i < playerNames.Length; i++)
+                {
+                    if (playerNames[i] != null && !playerNames[i].IsDisposed)
+                        playerNames[i].Text = names[i];
+                }
+            }));
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -122,20 +178,5 @@ namespace UM
             updateTimer?.Dispose();
             base.OnFormClosing(e);
         }
-
-        public void UpdatePlayerNames(string[] names)
-        {
-            if (this.IsHandleCreated)
-            {
-                this.BeginInvoke(new Action(() =>
-                {
-                    for (int i = 0; i < names.Length && i < playerNames.Length; i++)
-                    {
-                        playerNames[i].Text = names[i];
-                    }
-                }));
-            }
-        }
-
     }
 }
