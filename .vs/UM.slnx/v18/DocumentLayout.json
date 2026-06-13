@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lowco\\source\\repos\\UM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\settingsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:settingsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|c:\\users\\lowco\\source\\repos\\um\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C529CC44-3800-9C55-B692-93D1B008D3E8}|UM.csproj|solutionrelative:settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDA798E2-1833-4EC4-AD47-B458CB596FE7}|UM.csproj|C:\\Users\\lowco\\source\\repos\\UM\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EDA798E2-1833-4EC4-AD47-B458CB596FE7}|UM.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SettingsForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\SettingsForm.cs",
+              "RelativeDocumentMoniker": "SettingsForm.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\SettingsForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "SettingsForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T16:29:07.98Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAswAIBAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T20:11:57.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T12:14:05.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T12:09:14.936Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SettingsForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\SettingsForm.Designer.cs",
+              "RelativeDocumentMoniker": "SettingsForm.Designer.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\SettingsForm.Designer.cs",
+              "RelativeToolTip": "SettingsForm.Designer.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAiwMoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T20:19:05.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SettingsForm.cs",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\SettingsForm.cs",
+              "RelativeDocumentMoniker": "SettingsForm.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\SettingsForm.cs",
+              "RelativeToolTip": "SettingsForm.cs",
+              "ViewState": "AgIAAEwBAAAAAAAAAAAUwF8BAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T20:16:20.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\GameManager.cs",
+              "RelativeDocumentMoniker": "GameManager.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\GameManager.cs",
+              "RelativeToolTip": "GameManager.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAmwK8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T20:13:12.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAqwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T20:09:29.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\lowco\\source\\repos\\UM\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T20:06:16.174Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
